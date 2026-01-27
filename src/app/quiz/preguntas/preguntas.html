@@ -1,0 +1,59 @@
+<div class="quiz-wrapper">
+    <!-- Encabezado -->
+    <div class="quiz-header d-flex justify-content-between align-items-center px-3 py-3">
+        <img src="./LogoEpici.png" alt="EPICI" class="logo-epici" />
+        <h5 class="quiz-titulo">RETO PEPELUCHO</h5>
+    </div>
+
+    <!-- Barra de progreso -->
+    <div class="progress-section mx-3 mt-2 mb-3">
+        <div class="d-flex justify-content-between mb-1">
+            <p class="mb-0">Pregunta {{ posicion + 1 }} de {{ preguntas.length }}</p>
+            <p class="mb-0">Puntos: {{ puntaje }}</p>
+        </div>
+        <div class="progress" style="height: 12px;">
+            <div class="progress-bar bg-warning" role="progressbar"
+                [style.width.%]="((posicion + 1) / preguntas.length) * 100"></div>
+        </div>
+    </div>
+
+    <!-- Pregunta con personaje a la izquierda -->
+    <div class="pregunta-con-personaje d-flex align-items-start px-4 mb-4">
+        <img [src]="this.respuestaSeleccionada == null ? './Pensando_Pregunta.png': this.esCorrecta ? './RespuestaCorrecta.png' : './RespuestaErronea.png'"
+            alt="Pepelucho" class="img-fluid pepelucho-img me-3" />
+        <div class="pregunta-bubble">
+            <h4 class="quiz-pregunta mb-0">{{ preguntas[posicion].pregunta }}</h4>
+        </div>
+    </div>
+
+    <!-- Opciones -->
+    <div class="d-grid gap-3 px-4">
+        <button *ngFor="let alt of preguntas[posicion].alternativa; let i = index"
+            class="btn quiz-option rounded-pill py-2 px-3"
+            [class.correct]="respuestaSeleccionada === i && alt.esCorrecta"
+            [class.incorrect]="respuestaSeleccionada === i && !alt.esCorrecta" (click)="seleccionarRespuesta(i)">
+            {{ alt.premisa }}
+        </button>
+    </div>
+
+    <!-- Feedback -->
+    <div *ngIf="respuestaSeleccionada !== null" class="text-center mt-3">
+        <span class="badge bg-success"
+            *ngIf="preguntas[posicion].alternativa[respuestaSeleccionada].esCorrecta">¡Correcto!</span>
+        <span class="badge bg-danger"
+            *ngIf="!preguntas[posicion].alternativa[respuestaSeleccionada].esCorrecta">Incorrecto</span>
+    </div>
+
+    <div class="d-grid gap-3" *ngIf="this.respuestaSeleccionada != null">
+        <button class="btn quiz-option rounded-pill py-2 px-3 boton-abajo" (click)="siguientePregunta()"
+            [style]="this.esCorrecta? 'background-color: #4CAF50;' : 'background-color: #f44336;'">
+            Siguiente Pregunta
+        </button>
+    </div>
+
+    <div class="quiz-header d-flex justify-content-between align-items-center px-3 py-3 nav-abajo">
+        <img src="./LogoFacfym.png" alt="EPICI" class="logo-epici" height="50px"/>
+        <img src="./LogoUNPRG.png" alt="EPICI" class="logo-epici" height="50px"/>
+    </div>
+
+</div>

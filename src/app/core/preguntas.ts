@@ -1,0 +1,225 @@
+export class constants {
+
+    static readonly PreguntaDataBase: Pregunta[] = [
+        {
+            "pregunta": "¿Por qué es reconocida principalmente la ciudad de Eten a nivel nacional?",
+            "alternativa": [
+                {
+                    "premisa": "Por su antigua actividad minera",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Por el Milagro del Divino Niño",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "Por ser capital regional",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Por su puerto industrial moderno",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "El Milagro Eucarístico de Eten ocurrió durante:",
+            "alternativa": [
+                {
+                    "premisa": "La época prehispánica",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "El periodo virreinal",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "La independencia del Perú",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "La república temprana",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "¿Cuál fue la principal función del Puerto de Eten durante el siglo XIX?",
+            "alternativa": [
+                {
+                    "premisa": "Centro turístico del norte",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Base naval militar",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Puerto de comercio y exportación",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "Zona exclusiva de pesca artesanal",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "Una causa importante de la pérdida de relevancia del Puerto de Eten fue:",
+            "alternativa": [
+                {
+                    "premisa": "El agotamiento de recursos pesqueros",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "La competencia de puertos más modernos cercanos",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "Los conflictos armados locales",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "El aislamiento geográfico",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "La festividad más representativa de Ciudad Eten está vinculada principalmente a:",
+            "alternativa": [
+                {
+                    "premisa": "Una tradición agrícola ancestral",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Un acontecimiento religioso",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "Una victoria militar histórica",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Una celebración comercial",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "Pedro Ruiz Gallo es una figura importante para Lambayeque porque fue:",
+            "alternativa": [
+                {
+                    "premisa": "Un líder político regional",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Un científico e ingeniero destacado",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "Un religioso influyente",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Un comerciante del siglo XIX",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "Pedro Ruiz Gallo es recordado especialmente por:",
+            "alternativa": [
+                {
+                    "premisa": "Sus obras literarias",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Sus inventos y aportes tecnológicos",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "Su carrera diplomática",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Su rol como educador escolar",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "Ciudad Eten se consolidó como centro urbano principalmente por:",
+            "alternativa": [
+                {
+                    "premisa": "Su cercanía directa al puerto",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Su importancia religiosa y administrativa",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "El desarrollo industrial moderno",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "La explotación minera",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "El ferrocarril de Eten fue importante porque permitió:",
+            "alternativa": [
+                {
+                    "premisa": "El transporte de productos agrícolas hacia el puerto",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "La expansión turística regional",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "La conexión directa con la sierra sur",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "El uso exclusivo para pasajeros",
+                    "esCorrecta": false
+                }
+            ]
+        },
+        {
+            "pregunta": "Una costumbre tradicional aún vigente en Ciudad Eten es:",
+            "alternativa": [
+                {
+                    "premisa": "Las danzas amazónicas",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Las procesiones religiosas",
+                    "esCorrecta": true
+                },
+                {
+                    "premisa": "Las ferias mineras",
+                    "esCorrecta": false
+                },
+                {
+                    "premisa": "Las celebraciones incas",
+                    "esCorrecta": false
+                }
+            ]
+        }
+    ]
+}
+
+export interface Pregunta {
+    pregunta: string;
+    alternativa: Alternativa[];
+}
+
+export interface Alternativa {
+    premisa: string;
+    esCorrecta: boolean;
+}
