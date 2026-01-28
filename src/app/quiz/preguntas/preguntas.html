@@ -2,7 +2,7 @@
     <!-- Encabezado -->
     <div class="quiz-header d-flex justify-content-between align-items-center px-3 py-3">
         <img src="./LogoEpici.png" alt="EPICI" class="logo-epici" />
-        <h5 class="quiz-titulo">RETO PEPELUCHO</h5>
+        <h5 class="quiz-titulo">RETO DE PEPELUCHO</h5>
     </div>
 
     <!-- Barra de progreso -->
@@ -17,7 +17,6 @@
         </div>
     </div>
 
-    <!-- Pregunta con personaje a la izquierda -->
     <div class="pregunta-con-personaje d-flex align-items-start px-4 mb-4">
         <img [src]="this.respuestaSeleccionada == null ? './Pensando_Pregunta.png': this.esCorrecta ? './RespuestaCorrecta.png' : './RespuestaErronea.png'"
             alt="Pepelucho" class="img-fluid pepelucho-img me-3" />
@@ -26,10 +25,10 @@
         </div>
     </div>
 
-    <!-- Opciones -->
     <div class="d-grid gap-3 px-4">
         <button *ngFor="let alt of preguntas[posicion].alternativa; let i = index"
             class="btn quiz-option rounded-pill py-2 px-3"
+            [disabled]="respuestaSeleccionada !== null"
             [class.correct]="respuestaSeleccionada === i && alt.esCorrecta"
             [class.incorrect]="respuestaSeleccionada === i && !alt.esCorrecta" (click)="seleccionarRespuesta(i)">
             {{ alt.premisa }}
@@ -52,8 +51,8 @@
     </div>
 
     <div class="quiz-header d-flex justify-content-between align-items-center px-3 py-3 nav-abajo">
-        <img src="./LogoFacfym.png" alt="EPICI" class="logo-epici" height="50px"/>
-        <img src="./LogoUNPRG.png" alt="EPICI" class="logo-epici" height="50px"/>
+        <img src="./LogoFacfym.png" alt="EPICI" class="logo-epici" height="50px" />
+        <img src="./LogoUNPRG.png" alt="EPICI" class="logo-epici" height="50px" />
     </div>
 
 </div>

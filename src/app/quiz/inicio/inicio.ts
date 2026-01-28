@@ -11,7 +11,7 @@ export class Inicio {
   constructor(private router: Router) { }
 
   empezarJuego(): void {
-    this.router.navigate(['/quiz']); // ajusta la ruta según tu flujo
+    this.router.navigate(['/quiz']);
   }
 
 }

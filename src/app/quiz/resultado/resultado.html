@@ -1,1 +1,52 @@
-<p>resultado works!</p>
+<!-- Encabezado -->
+<div class="quiz-header d-flex justify-content-between align-items-center px-3 py-3">
+    <img src="./LogoEpici.png" alt="EPICI" class="logo-epici" />
+    <h5 class="quiz-titulo">RETO DE PEPELUCHO</h5>
+</div>
+
+<!-- Contenido principal -->
+<div class="resultado-wrapper d-flex flex-column justify-content-center text-center p-4">
+
+    <!-- Sección con imagen y puntaje -->
+    <div class="resultado-contenido d-flex flex-nowrap justify-content-center align-items-center p-4">
+        <!-- Imagen personaje -->
+        <img [src]="this.puntaje >= 75 ? './Final_ConPremio.png' : './Final_SinPremio.png'" alt="Pepelucho celebrando"
+            class="img-fluid resultado-personaje" />
+
+        <!-- Datos de resultado -->
+        <div class="resultado-datos text-start">
+            <h1 class="resultado-felicidades" *ngIf="puntaje >= 75">¡FELICIDADES, LO LOGRASTE!</h1>
+            <h1 class="resultado-felicidades" *ngIf="puntaje < 75">¡CASI LO LOGRAS!</h1>
+            <h2 class="resultado-puntaje">Puntos Totales: {{ puntaje }}</h2>
+            <p class="resultado-correctas">Respondiste: {{ correctas }}/{{ total }} correctamente</p>
+        </div>
+    </div>
+
+    <!-- Mensaje de premio con fondo -->
+    <div class="resultado-premio-box p-5 mb-4"
+        [style]="this.puntaje >= 75 ? 'background-image: url(\'./Ticket_Premio.png\');' : 'background-image: url(\'./Ticket_No_Premio.png\');'">
+        <h4 class="resultado-premio-text" *ngIf="puntaje >= 75">
+            ¡Has ganado un premio!
+        </h4>
+        <h4 class="resultado-premio-text" *ngIf="puntaje < 75">
+            Sigue intentando para ganar un premio.
+        </h4>
+
+    </div>
+
+    <!-- Instrucción -->
+    <p class="resultado-instruccion mb-4" *ngIf="puntaje >= 75">
+        Muestra esta pantalla en el stand para reclamar tu premio.
+    </p>
+
+    <!-- Botón volver -->
+    <button class="btn btn-danger rounded-pill px-4 py-2" (click)="volverInicio()">
+        VOLVER AL INICIO
+    </button>
+
+    <!-- Logos institucionales -->
+    <div class="d-flex justify-content-center align-items-center gap-3 mt-4">
+        <img src="./LogoFacfym.png" alt="FACFYM" class="logo-final" />
+        <img src="./LogoUNPRG.png" alt="UNPRG" class="logo-final" />
+    </div>
+</div>

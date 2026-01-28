@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { constants, Pregunta } from '../../core/preguntas';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-preguntas',
@@ -14,15 +15,16 @@ export class Preguntas implements OnInit {
 
   posicion = 0;
   puntaje = 0;
+  correctas = 0;
 
   preguntas: Pregunta[] = constants.PreguntaDataBase;
   respuestaSeleccionada: number | null = null;
   esCorrecta: boolean | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
+
   ngOnInit(): void {
   }
-
 
   seleccionarRespuesta(index: number): void {
     this.respuestaSeleccionada = index;
@@ -31,9 +33,9 @@ export class Preguntas implements OnInit {
     var imagenMostrar = "";
     this.esCorrecta = this.preguntas[this.posicion].alternativa[index].esCorrecta;
 
-    // aquí puedes validar si fue correcta y sumar puntaje
     if (this.esCorrecta) {
       this.puntaje += 10;
+      this.correctas += 1;
       imagenMostrar = imgCorrecta;
     } else {
       this.puntaje -= 5;
@@ -47,7 +49,9 @@ export class Preguntas implements OnInit {
       this.respuestaSeleccionada = null;
       this.esCorrecta = null;
     } else {
-      alert(`¡Has completado el quiz! Tu puntaje final es: ${this.puntaje}`);
+      this.router.navigate(['/resultado'], {
+        state: { puntaje: this.puntaje, correctas: this.correctas }
+      });
     }
   }
 }
