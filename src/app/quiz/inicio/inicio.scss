@@ -3,7 +3,7 @@
 $app-max-width: 420px;
 
 .app-container {
-    background-image: url('../../../../Public/Background.png');
+    background-image: url('/Background.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -31,7 +31,7 @@ $app-max-width: 420px;
 }
 
 .reto-btn {
-    background-image: url('../../../../Public/Btn_Empezar.svg');
+    background-image: url('/Btn_Empezar.svg');
     // background-size: cover;
     background-position: center;
     color: #fff;
