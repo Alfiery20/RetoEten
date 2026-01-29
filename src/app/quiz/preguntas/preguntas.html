@@ -1,7 +1,9 @@
 <div class="quiz-wrapper">
     <!-- Encabezado -->
-    <div class="quiz-header d-flex justify-content-between align-items-center px-3 py-3">
-        <img src="./LogoEpici.png" alt="EPICI" class="logo-epici" />
+    <div class="quiz-header d-flex justify-content-between align-items-center">
+        <div class="logo-epici-container">
+            <img src="./LogoEpici.webp" alt="EPICI" class="logo-epici" />
+        </div>
         <h5 class="quiz-titulo">RETO DE PEPELUCHO</h5>
     </div>
 
@@ -18,17 +20,21 @@
     </div>
 
     <div class="pregunta-con-personaje d-flex align-items-start px-4 mb-4">
-        <img [src]="this.respuestaSeleccionada == null ? './Pensando_Pregunta.png': this.esCorrecta ? './RespuestaCorrecta.png' : './RespuestaErronea.png'"
+        <img [src]="this.respuestaSeleccionada == null ? './Pensando_Pregunta.webp': this.esCorrecta ? './RespuestaCorrecta.webp' : './RespuestaErronea.webp'"
             alt="Pepelucho" class="img-fluid pepelucho-img me-3" />
         <div class="pregunta-bubble">
-            <h4 class="quiz-pregunta mb-0">{{ preguntas[posicion].pregunta }}</h4>
+            <h4 *ngIf="this.esCorrecta || this.respuestaSeleccionada == null" class="quiz-pregunta mb-0">{{
+                preguntas[posicion].pregunta }}</h4>
+            <h4 *ngIf="!this.esCorrecta && this.respuestaSeleccionada !== null" class="quiz-pregunta mb-0">
+                <strong style="color: red;">INCORRECTO: </strong>
+                La respuesta correcta era <strong>"{{this.respuestaCorrecta}}"</strong>
+            </h4>
         </div>
     </div>
 
     <div class="d-grid gap-3 px-4">
         <button *ngFor="let alt of preguntas[posicion].alternativa; let i = index"
-            class="btn quiz-option rounded-pill py-2 px-3"
-            [disabled]="respuestaSeleccionada !== null"
+            class="btn quiz-option rounded-pill py-2 px-3" [disabled]="respuestaSeleccionada !== null"
             [class.correct]="respuestaSeleccionada === i && alt.esCorrecta"
             [class.incorrect]="respuestaSeleccionada === i && !alt.esCorrecta" (click)="seleccionarRespuesta(i)">
             {{ alt.premisa }}
@@ -51,8 +57,8 @@
     </div>
 
     <div class="quiz-header d-flex justify-content-between align-items-center px-3 py-3 nav-abajo">
-        <img src="./LogoFacfym.png" alt="EPICI" class="logo-epici" height="50px" />
-        <img src="./LogoUNPRG.png" alt="EPICI" class="logo-epici" height="50px" />
+        <img src="./LogoFacfym.webp" alt="EPICI" class="logo-epici" height="50px" />
+        <img src="./LogoUNPRG.webp" alt="EPICI" class="logo-epici" height="50px" />
     </div>
 
 </div>

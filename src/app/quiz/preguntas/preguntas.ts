@@ -19,7 +19,8 @@ export class Preguntas implements OnInit {
 
   preguntas: Pregunta[] = constants.PreguntaDataBase;
   respuestaSeleccionada: number | null = null;
-  esCorrecta: boolean | null = null;
+  esCorrecta: boolean | null = false;
+  respuestaCorrecta: string = '';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -28,10 +29,11 @@ export class Preguntas implements OnInit {
 
   seleccionarRespuesta(index: number): void {
     this.respuestaSeleccionada = index;
-    const imgCorrecta = "public/RespuestaCorrecta.png";
-    const imgIncorrecta = "public/RespuestaErronea.png";
+    const imgCorrecta = "public/RespuestaCorrecta.webp";
+    const imgIncorrecta = "public/RespuestaErronea.webp";
     var imagenMostrar = "";
     this.esCorrecta = this.preguntas[this.posicion].alternativa[index].esCorrecta;
+    this.respuestaCorrecta = this.preguntas[this.posicion].alternativa.find(p => p.esCorrecta)?.premisa || '';
 
     if (this.esCorrecta) {
       this.puntaje += 10;

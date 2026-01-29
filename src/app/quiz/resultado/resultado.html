@@ -1,6 +1,7 @@
-<!-- Encabezado -->
-<div class="quiz-header d-flex justify-content-between align-items-center px-3 py-3">
-    <img src="./LogoEpici.png" alt="EPICI" class="logo-epici" />
+<div class="quiz-header d-flex justify-content-between align-items-center">
+    <div class="logo-epici-container">
+        <img src="./LogoEpici.webp" alt="EPICI" class="logo-epici" />
+    </div>
     <h5 class="quiz-titulo">RETO DE PEPELUCHO</h5>
 </div>
 
@@ -8,10 +9,10 @@
 <div class="resultado-wrapper d-flex flex-column justify-content-center text-center p-4">
 
     <!-- Sección con imagen y puntaje -->
-    <div class="resultado-contenido d-flex flex-nowrap justify-content-center align-items-center p-4">
+    <div class="resultado-contenido d-flex flex-nowrap justify-content-center align-items-center">
         <!-- Imagen personaje -->
-        <img [src]="this.puntaje >= 75 ? './Final_ConPremio.png' : './Final_SinPremio.png'" alt="Pepelucho celebrando"
-            class="img-fluid resultado-personaje" />
+        <img [src]="this.puntaje >= 75 ? './Final_ConPremio.webp' : './Final_SinPremio.webp'" alt="Pepelucho celebrando"
+            class="img-fluid resultado-personaje" width="50%px" />
 
         <!-- Datos de resultado -->
         <div class="resultado-datos text-start">
@@ -24,7 +25,7 @@
 
     <!-- Mensaje de premio con fondo -->
     <div class="resultado-premio-box p-5 mb-4"
-        [style]="this.puntaje >= 75 ? 'background-image: url(\'./Ticket_Premio.png\');' : 'background-image: url(\'./Ticket_No_Premio.png\');'">
+        [style]="this.puntaje >= 75 ? 'background-image: url(\'./Ticket_Premio.webp\');' : 'background-image: url(\'./Ticket_No_Premio.webp\');'">
         <h4 class="resultado-premio-text" *ngIf="puntaje >= 75">
             ¡Has ganado un premio!
         </h4>
@@ -46,7 +47,7 @@
 
     <!-- Logos institucionales -->
     <div class="d-flex justify-content-center align-items-center gap-3 mt-4">
-        <img src="./LogoFacfym.png" alt="FACFYM" class="logo-final" />
-        <img src="./LogoUNPRG.png" alt="UNPRG" class="logo-final" />
+        <img src="./LogoFacfym.webp" alt="FACFYM" class="logo-final" />
+        <img src="./LogoUNPRG.webp" alt="UNPRG" class="logo-final" />
     </div>
 </div>
